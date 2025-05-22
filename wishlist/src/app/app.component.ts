@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  items = [ 
+  items : WishItem[] = [ 
     new WishItem('To Learn Angular'),
     new WishItem('Get Coffee', true),
     new WishItem('Find grass that cuts itself')

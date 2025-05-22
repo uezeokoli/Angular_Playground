@@ -13,6 +13,7 @@
             type="checkbox"
             class="checkbox"
             [checked] = item.isComplete
+            (click)="toggleItem(item, $event)"
             >
             {{item.wishText}}
           </label>

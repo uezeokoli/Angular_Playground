@@ -16,4 +16,10 @@ export class AppComponent {
     new WishItem('Find grass that cuts itself')
   ]
   title = 'wishlist';
+
+  toggleItem(item : WishItem, e : any ){
+    item.isComplete = !item.isComplete
+    console.log(`Item is ${item.isComplete ? "":"not "}checked`)
+    console.log(e)
+  }
 }

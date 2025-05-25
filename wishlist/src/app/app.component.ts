@@ -4,52 +4,44 @@ import { WishItem } from '../shared/models/wishItem';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
+import { WishFilterComponent } from './wish-filter/wish-filter.component';
 
-const filters = [
-  (item : WishItem) => item,
-  (item : WishItem) => !item.isComplete,
-  (item : WishItem) => item.isComplete
-]
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, WishListComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    WishListComponent,
+    AddWishFormComponent,
+    WishFilterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent{
   items : WishItem[] = [ 
     new WishItem('To Learn Angular'),
     new WishItem('Get Coffee', true),
     new WishItem('Find grass that cuts itself')
   ]
 
-  title = 'wishlist';
-
-  newWishText = ''
   listFilter : any = '0'
 
+  filter : any  = () => true;
+
   get visibleItems(): WishItem[] {
-    // let value = this.listFilter
-    // if (value == '0'){
-    //       return this.items
-    //     } else if (value == '1') { // unfulfilled wish
-    //       return this.items.filter(item => !item.isComplete)
-    //     } else{//fulfilled wish
-    //       return this.items.filter(item => item.isComplete)
-    //     }
-    return this.items.filter(filters[parseInt(this.listFilter)])
+    return this.items.filter(this.filter)
   }
 
-  addNewWish(e : any) {
-    this.items.push(new WishItem(this.newWishText))
-    this.newWishText = ""
+  changeFilter(value : any){
+    this.listFilter = value
   }
 
-  // toggleItem(item : WishItem, e : any ){
-  //   item.isComplete = !item.isComplete
-  //   // console.log(`Item is ${item.isComplete ? "":"not "}checked`)
-  //   // console.log(e)
-  // }
+  addWish(wish: WishItem){
+    this.items.push(wish)
+  }
+
 }
 

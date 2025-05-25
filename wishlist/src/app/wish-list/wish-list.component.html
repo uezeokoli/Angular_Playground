@@ -4,7 +4,14 @@
 
 <ng-template #showItems>
     <ul class="wish-list">
-    <li *ngFor="let item of wishes">
+    
+    <wish-list-item
+    *ngFor="let wish of wishes"
+    [wishText]="wish.wishText"
+    [(fullfilled)]="wish.isComplete"
+    ></wish-list-item>
+
+    <!-- <li *ngFor="let item of wishes">
         <div class="form-check">
         <label class="form-check-label">
             <input 
@@ -16,6 +23,7 @@
             {{item.wishText}}
         </label>
         </div>
-    </li>
+    </li> -->
+    
     </ul>
 </ng-template>

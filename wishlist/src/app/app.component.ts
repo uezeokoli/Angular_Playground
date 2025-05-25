@@ -22,7 +22,17 @@ export class AppComponent {
   newWishText = ''
   listFilter : String = '0'
 
-  visibleItems: WishItem[] = this.items;
+  get visibleItems(): WishItem[] {
+    let value = this.listFilter
+    if (value == '0'){
+          return this.items
+        } else if (value == '1') { // unfulfilled wish
+          return this.items.filter(item => !item.isComplete)
+        } else{//fulfilled wish
+          return this.items.filter(item => item.isComplete)
+        }
+    
+  }
 
   addNewWish(e : any) {
     // console.log(this.newWishText)
@@ -30,20 +40,10 @@ export class AppComponent {
     this.newWishText = ""
   }
 
-  filterChanged(value : any){
-    if (value == '0'){
-      this.visibleItems = this.items
-    } else if (value == '1') { // unfulfilled wish
-      this.visibleItems = this.items.filter(item => !item.isComplete)
-    } else{//fulfilled wish
-      this.visibleItems = this.items.filter(item => item.isComplete)
-    }
-  }
-
   toggleItem(item : WishItem, e : any ){
     item.isComplete = !item.isComplete
-    console.log(`Item is ${item.isComplete ? "":"not "}checked`)
-    console.log(e)
+    // console.log(`Item is ${item.isComplete ? "":"not "}checked`)
+    // console.log(e)
   }
 }
 

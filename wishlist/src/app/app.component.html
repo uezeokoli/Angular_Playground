@@ -5,7 +5,7 @@
   <wish-filter (filter)="filter = $event"></wish-filter>
 
   <div class="row mt-3">
-    <wish-list [wishes]="visibleItems"></wish-list>
+    <wish-list [wishes]="items.filter(this.filter)"></wish-list>
   </div>
 
 </div>

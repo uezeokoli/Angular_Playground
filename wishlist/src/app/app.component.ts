@@ -31,9 +31,9 @@ export class AppComponent{
 
   filter : any  = () => true;
 
-  get visibleItems(): WishItem[] {
-    return this.items.filter(this.filter)
-  }
+  // get visibleItems(): WishItem[] {
+  //   return this.items.filter(this.filter)
+  // }
 
   changeFilter(value : any){
     this.listFilter = value

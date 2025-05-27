@@ -1,8 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WishItem } from '../../../shared/models/wishItem';
 import { CommonModule } from '@angular/common';
+import {EventService} from '../../../shared/services/EventService';
 
 @Component({
+  standalone: true,
   selector: 'wish-list-item',
   imports: [CommonModule],
   templateUrl: './wish-list-item.component.html',
@@ -10,17 +12,22 @@ import { CommonModule } from '@angular/common';
 })
 export class WishListItemComponent {
 
-  @Input() wishText! : string 
-  @Input() fullfilled! : boolean
-  @Output() fullfilledChange = new EventEmitter<boolean>
+  constructor(private events: EventService){}
+
+  @Input() wish! : WishItem 
+  // @Input() fullfilled! : boolean
+  // @Output() fullfilledChange = new EventEmitter<boolean>h
 
   updateFullfilled(){
-    this.fullfilled = !this.fullfilled
-    this.fullfilledChange.emit(this.fullfilled)
+    this.wish.isComplete = !this.wish.isComplete
+    // this.fullfilledChange.emit(this.fullfilled)
   }
 
   get cssClass() {
-    console.log("yo")
-    return this.fullfilled ? ['strikethrough', 'text-muted']: []
+    return this.wish.isComplete ? 'strikethrough text-muted': ''
+  }
+
+  removeWish(){
+    this.events.emit('removeWish', this.wish)
   }
 }

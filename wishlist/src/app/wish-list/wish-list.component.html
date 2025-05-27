@@ -7,8 +7,7 @@
     
     <wish-list-item
     *ngFor="let wish of wishes"
-    [wishText]="wish.wishText"
-    [(fullfilled)]="wish.isComplete"
+    [wish]="wish"
     ></wish-list-item>
 
     <!-- <li *ngFor="let item of wishes">

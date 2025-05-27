@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { WishItem } from '../../shared/models/wishItem';
 
 @Component({
+  standalone: true,
   selector: 'add-wish-form',
   imports: [FormsModule, CommonModule],
   templateUrl: './add-wish-form.component.html',

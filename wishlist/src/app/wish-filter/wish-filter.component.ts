@@ -10,6 +10,7 @@ const filters = [
 ]
 
 @Component({
+  standalone: true,
   selector: 'wish-filter',
   imports: [
     CommonModule,

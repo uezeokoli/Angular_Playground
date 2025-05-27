@@ -5,6 +5,7 @@ import { WishListItemComponent } from './wish-list-item/wish-list-item.component
 import { FormsModule } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'wish-list',
   imports: [CommonModule, WishListItemComponent, FormsModule],
   templateUrl: './wish-list.component.html',

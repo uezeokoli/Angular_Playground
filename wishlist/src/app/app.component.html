@@ -1,13 +1,5 @@
-<!-- <div class="container">
-
-  <add-wish-form (addWish)="addWish($event)"></add-wish-form>
-
-  <wish-filter [(filter)]="filter"></wish-filter>
-
-  <div class="row mt-3">
-    <wish-list [wishes]="items.filter(this.filter)"></wish-list>
-  </div>
-
-</div> -->
-
-<app-wish></app-wish>
+@if (showWish){
+   <app-wish></app-wish>
+ } @else {
+   <app-contact></app-contact>
+}

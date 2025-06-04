@@ -41,6 +41,8 @@ class="container p-5"
                         This field is required.
                 }@else if (contactForm.get('senderEmail')?.hasError('email')) {
                         Please enter your email address.
+                }@else if (contactForm.get('senderEmail')?.hasError('invalidEmailDomain')){
+                        The email provider is not allowed.
                 }
                 </small>
             </div>

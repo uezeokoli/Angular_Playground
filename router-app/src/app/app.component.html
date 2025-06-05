@@ -179,6 +179,9 @@
 
 <main class="main">
   <div class="content">
+    
+    <a routerLink="second">Second Page</a>
+    <a href="#" (click)="$event.preventDefault(); goToContact()">Contact Page</a>
     <router-outlet />
   </div>
 </main>

@@ -3,6 +3,10 @@
     class="row"
     *ngFor="let product of products"
     >
-        <h4>{{product.name}}</h4>
+        <h4>
+            <a
+            [routerLink]="['/products', product.id]"
+            >{{product.name}}</a>
+        </h4>
     </div>
 </div>

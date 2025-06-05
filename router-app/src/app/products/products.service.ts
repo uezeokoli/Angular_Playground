@@ -16,4 +16,8 @@ export class ProductsService {
   getAllProducts(){
     return of(this.data)
   }
+
+  getProduct(id: number){
+    return of(this.data.find(product => product.id === id))
+  }
 }

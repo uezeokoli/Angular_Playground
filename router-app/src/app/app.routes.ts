@@ -4,6 +4,7 @@ import { SecondComponent } from './second/second.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductdetailsComponent } from './products/productdetails/productdetails.component';
 
 //first match policy
 export const routes: Routes = [
@@ -11,6 +12,7 @@ export const routes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'second', component: SecondComponent},
     {path: 'products', component: ProductsComponent},
+    {path: 'products/:id', component: ProductdetailsComponent},
     {path: '**', component: NotFoundComponent} // wildcard (**): the wildcard path will be taken if there are no other paths that match above
 
 ];
